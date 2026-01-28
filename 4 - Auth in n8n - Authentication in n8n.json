@@ -1,0 +1,129 @@
+{
+  "name": "Authentication",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "basicAuth",
+        "url": "https://httpbin.org/basic-auth/mayank/mypass",
+        "options": {}
+      },
+      "id": "05acf12f-efbe-4d3f-8f33-b7f06b7b54cb",
+      "name": "Basic Auth Example",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        -208,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "headerAuth",
+        "url": "https://httpbin.org/bearer",
+        "options": {}
+      },
+      "id": "2ce32427-1fb6-4ba2-9258-61c8d3e69294",
+      "name": "Bearer Token Example",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        -208,
+        336
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "HvZ4mXImMzPa6DTR",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "url": "https://api.github.com/user",
+        "options": {}
+      },
+      "id": "ddcbfb30-3456-4e9f-a0e0-3c94977a30fe",
+      "name": "OAuth2 Example",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        -208,
+        528
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "passThrough"
+      },
+      "id": "84672011-67bf-47c9-9a56-7f22e68822bd",
+      "name": "Collect Results",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 1,
+      "position": [
+        96,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "content": "##  Authentication Methods in n8n (HTTP Request Node)\n\nIn n8n, the **HTTP Request node** supports multiple authentication methods to connect securely with APIs. Here's everything you need to teach your students—clean, easy, and practical.\n\n---\n\n###  Why Authentication Matters\n\nWhen you call an API, you often need to prove who you are—like showing a membership card. Authentication ensures only authorized users can access the service.\n\n**Analogy:** Think of accessing a gym:\n- Some gyms are open to all (no auth).\n- Some require a membership card (API key or Basic Auth).\n- Some require going through an automatic gate (OAuth).\n\n---\n\n###  Supported Authentication Methods in n8n\n\nBased on n8n documentation, here are the supported methods:\n\n| Type                      | What It Is / When to Use                                              |\n|---------------------------|------------------------------------------------------------------------|\n| **Predefined Credential** | Best when n8n already supports the service (e.g., Asana, Shopify).     |\n| **Basic Auth**            | Username & Password via HTTP header (encoded, but not very secure).    |\n| **Digest Auth**           | More secure than Basic—uses hashes to avoid sending passwords openly. |\n| **Header Auth**           | Custom header key/value—good for API keys or tokens.                   |\n| **Bearer Auth**           | Uses `Authorization: Bearer <token>` header—common for modern APIs.     |\n| **OAuth1**                | Legacy APIs that use token-based OAuth 1.0 handshake.                   |\n| **OAuth2**                | The common standard (Auth Code, Client Credentials, PKCE flows).        |\n| **Query Auth**            | Sends credentials in URL query parameters (not very secure).            |\n| **Custom Auth**           | For APIs that need unusual methods—combine headers, body, query, etc.  |\n\n :contentReference[oaicite:1]{index=1}\n\n---\n\n###  Analogies to Connect the Dots\n\n1. **Predefined Credential**: Like using a preloaded gym pass card—setup is automatic.\n2. **Basic Auth**: Like showing ID & PIN at the front desk to enter—simple but visible.\n3. **Digest Auth**: Like using a one-time password sent to your phone—secure handshake.\n4. **Header / Bearer Auth**: Like flashing a digital keycard—secure and seamless.\n5. **OAuth**: Like granting access to your bank account with permission tokens—managed and safe.\n6. **Query Auth**: Like yelling your password across the room—not advised.\n7. **Custom Auth**: Like passing a note in a secret code—flexible but must be handled carefully.\n\n---\n\n###  Demo Workflow Idea: Showcasing Auth Methods\n\n**Goal:** Illustrate how different authentication methods work in practice.\n\n1. **Manual Trigger** (Start).\n2. **HTTP Request (Basic Auth)**:\n   - Method: GET  \n   - URL: `https://httpbin.org/basic-auth/mayank/mypass`  \n   - Auth Type: Basic Auth  \n   - Username: `mayank`, Password: `mypass`\n\n3. **HTTP Request (Bearer Auth)**:\n   - URL: `https://api.example.com/userinfo`  \n   - Auth Type: Bearer Auth  \n   - Token: `<your-token>`\n\n4. **HTTP Request (OAuth2)**:\n   - Preconfigure OAuth2 credentials for a sample service like GitHub  \n   - Show how n8n handles the Authentication Code flow automatically.\n\n5. **Set Node** to consolidate responses.\n\n6. **Debug Message** showing the status/code of each request.\n\n---\n\n###  Teaching Tips\n\n- Always start with **Predefined Credentials** when available—it’s seamless.\n- Use **Header or Bearer Auth** for token-based APIs—most modern services.\n- Teach **Basic Auth** as legacy—easy to implement but less secure.\n- Cover **OAuth2** for real-world integrations like Google, GitHub, etc.\n- **Avoid Query Auth** unless absolutely necessary—it's visible in logs.\n- Use the **Demo Workflow** live to show how to configure each auth type in n8n.\n\n---\n\n###  Summary\n\n- Authentication verifies who is calling the API.\n- n8n supports many methods: choose the most secure and easiest.\n- Learn by building: practical workflows help remember each method.\n- Use auth nodes carefully, and keep credentials secure.\n\n---\n\n### 🔗 Connect with Me\n\nWant to learn how to build controller-agent logic in n8n using LLMs and conditions?\n\n📺 **YouTube** → [@tech.mayankagg](https://www.youtube.com/@tech.mayankagg)  \n💼 **LinkedIn** → [Mayank Agarwal](https://www.linkedin.com/in/mayank953/)  \n📸 **Instagram** → [@tech.mayankagg](https://www.instagram.com/tech.mayankagg/)\n\n---\n\n*Shared by Mayank Agarwal – Teaching AI workflows that actually scale.*\n",
+        "height": 2384,
+        "width": 1776,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1120,
+        -928
+      ],
+      "typeVersion": 1,
+      "id": "9d96ba57-888e-44d3-bce9-9d3f2653b7c2",
+      "name": "Sticky Note"
+    }
+  ],
+  "connections": {
+    "Basic Auth Example": {
+      "main": [
+        [
+          {
+            "node": "Collect Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bearer Token Example": {
+      "main": [
+        [
+          {
+            "node": "Collect Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OAuth2 Example": {
+      "main": [
+        [
+          {
+            "node": "Collect Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "pinData": {},
+  "triggerCount": 0,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}
